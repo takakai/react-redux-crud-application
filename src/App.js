@@ -1,9 +1,19 @@
 import React from 'react';
 
+const profile = [
+  {name: "Taro", age: 10},
+  {name: "Hanako", age: 7},
+  {name: "Yuta"}
+]
+
 function App() {
   return(
     <div>
-      <Cat />
+      {
+        profile.map((profile, index) => {
+          return <User name={profile.name} age={profile.age} key={index}/>
+        })
+      }
     </div>
   );
   
@@ -17,8 +27,12 @@ function App() {
   */
 }
 
-function Cat() {
-  return <div>Meow!</div>
+function User(props) {
+return <div>Hi, I am {props.name}, and {props.age} years old!</div>
+}
+
+User.defaultProps = {
+  age: 1
 }
 
 
